@@ -3,10 +3,9 @@
 
     var manifest = {
         type: "other",
-        version: "0.0.2",
-        author: "@QQQQQQ",
+        version: "0.0.3",
+        author: "@artsm",
         name: "Удаление заставки",
-        description: "1Плагин для удаление рекламы перед фильмом",
         desc: "Плагин для удаление заставки перед показом",
         url: "https://artsmv1.github.io/lampa-plugins/remove-ad/remove-ad.js"
     };
@@ -19,6 +18,7 @@
             updateplugins = true;
             plug.author = manifest.author;
             plug.desc = manifest.desc;
+            plug.description = manifest.desc;
             plug.name = manifest.name;
             plug.version = manifest.version;
         }
@@ -28,12 +28,12 @@
 
 
     function startPlugin() {
-        console.log('RAd: startPlugin(): 1');
+        //console.log('RAd: startPlugin(): 1');
         if (window.lampa_plugin_remove_ad) return;
-        console.log('RAd: startPlugin(): 2');
+        //console.log('RAd: startPlugin(): 2');
 
         window.lampa_plugin_remove_ad = true;
-        Lampa.Manifest.plugins = manifest;
+        //Lampa.Manifest.plugins = manifest;
 
         // not used currently
         // Lampa.Timeline.listener.follow('view', function (e) {
@@ -48,13 +48,10 @@
         //   console.log('Stats', 'player destroy', e);
         // });
 
-        // monitor reactions
         Lampa.Storage.listener.follow("change", function (e) {
-            console.log('RAd: Storage 1 event =', e);
+            //console.log('RAd: Storage 1 event =', e);
             if ((e.name == "vast_plugin_launch") && (e.value == 0)) {
-                console.log('RAd: Storage 2 event =', e);
-                //var movies_watched = Lampa.Storage.get("stats_movies_watched", {});
-                //var movies_watched_updated = updateReactions(e, movies_watched);
+                //console.log('RAd: Storage 2 event =', e);
                 Lampa.Storage.set("vast_plugin_launch", 1);
             }
         });
