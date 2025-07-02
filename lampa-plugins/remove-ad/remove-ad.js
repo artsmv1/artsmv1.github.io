@@ -1,29 +1,31 @@
 (function () {
     "use strict";
 
-    /*
-  var updateplugins = false;
-  var plugins = Lampa.Storage.get('plugins', '[]')
-  plugins.forEach(function(plug) {
-    if (plug.url.indexOf('lampaplugins.github.io') >= 0) {
-      updateplugins = true;
-	  plug.url = (plug.url + '').replace('https://lampaplugins.github.io/store/vcdn.js', 'http://skaz.tv/onlines.js');
-    }
-  })
-  if (updateplugins)
-    Lampa.Storage.set('plugins', plugins);
-  $.getScript('http://skaz.tv/onlines.js');
-    */
-
     var manifest = {
         type: "other",
-        version: "0.0.1",
+        version: "0.0.2",
         author: "@QQQQQQ",
-        name: "Удаление рекламы",
+        name: "Удаление заставки",
         description: "1Плагин для удаление рекламы перед фильмом",
-        desc: "2Плагин для удаление рекламы перед фильмом",
+        desc: "Плагин для удаление заставки перед показом",
         url: "https://artsmv1.github.io/lampa-plugins/remove-ad/remove-ad.js"
     };
+
+
+    var updateplugins = false;
+    var plugins = Lampa.Storage.get('plugins', '[]')
+    plugins.forEach(function (plug) {
+        if (plug.url.indexOf('artsmv1.github.io') >= 0) {
+            updateplugins = true;
+            plug.author = manifest.author;
+            plug.desc = manifest.desc;
+            plug.name = manifest.name;
+            plug.version = manifest.version;
+        }
+    })
+    if (updateplugins)
+        Lampa.Storage.set('plugins', plugins);
+
 
     function startPlugin() {
         console.log('RAd: startPlugin(): 1');
@@ -88,7 +90,7 @@
     //   parentContainer.insertBefore(statsElement, parentContainer.firstChild);
     // }, 2000);
 
-    
+
 
 
 
