@@ -1,16 +1,36 @@
 (function () {
     "use strict";
 
+    /*
+  var updateplugins = false;
+  var plugins = Lampa.Storage.get('plugins', '[]')
+  plugins.forEach(function(plug) {
+    if (plug.url.indexOf('lampaplugins.github.io') >= 0) {
+      updateplugins = true;
+	  plug.url = (plug.url + '').replace('https://lampaplugins.github.io/store/vcdn.js', 'http://skaz.tv/onlines.js');
+    }
+  })
+  if (updateplugins)
+    Lampa.Storage.set('plugins', plugins);
+  $.getScript('http://skaz.tv/onlines.js');
+    */
+
     var manifest = {
         type: "other",
         version: "0.0.1",
+        author: "@QQQQQQ",
         name: "Удаление рекламы",
         description: "Плагин для удаление рекламы перед фильмом",
-        component: "stats",
+        desc: "Плагин для удаление рекламы перед фильмом",
+        url: "https://files.catbox.moe/dyr835.js"
     };
 
     function startPlugin() {
+        console.log('RAd: startPlugin(): 1');
+        if (window.lampa_plugin_remove_ad) return;
+        console.log('RAd: startPlugin(): 2');
 
+        window.lampa_plugin_remove_ad = true;
         Lampa.Manifest.plugins = manifest;
 
         // not used currently
@@ -28,12 +48,13 @@
 
         // monitor reactions
         Lampa.Storage.listener.follow("change", function (e) {
-            console.log('RAd: Storage event =', e);
-            //if (e.name == "mine_reactions") {
+            console.log('RAd: Storage 1 event =', e);
+            if ((e.name == "vast_plugin_launch") && (e.value == 0)) {
+                console.log('RAd: Storage 2 event =', e);
                 //var movies_watched = Lampa.Storage.get("stats_movies_watched", {});
                 //var movies_watched_updated = updateReactions(e, movies_watched);
-                //Lampa.Storage.set("stats_movies_watched", movies_watched_updated);
-            //}
+                Lampa.Storage.set("vast_plugin_launch", 1);
+            }
         });
 
         // *** MOVIES WATCHED ***
@@ -71,6 +92,8 @@
 
 
 
+    startPlugin();
+    /*
     if (window.appready) {
         try {
             console.log('RAd: Starting the plugin... 1a');
@@ -87,4 +110,5 @@
             }
         });
     }
+    */
 })();
