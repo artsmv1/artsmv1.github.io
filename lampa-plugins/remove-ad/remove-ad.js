@@ -20,9 +20,9 @@
         version: "0.0.1",
         author: "@QQQQQQ",
         name: "Удаление рекламы",
-        description: "Плагин для удаление рекламы перед фильмом",
-        desc: "Плагин для удаление рекламы перед фильмом",
-        url: "https://files.catbox.moe/dyr835.js"
+        description: "1Плагин для удаление рекламы перед фильмом",
+        desc: "2Плагин для удаление рекламы перед фильмом",
+        url: "https://artsmv1.github.io/lampa-plugins/remove-ad/remove-ad.js"
     };
 
     function startPlugin() {
