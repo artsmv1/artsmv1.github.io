@@ -1,21 +1,23 @@
+/*
+ *
+ * Убирает заставку перед показом
+ *
+ */
 (function () {
     "use strict";
 
     var manifest = {
         type: "other",
-        version: "0.0.7",
+        version: "0.0.1",
         author: "@artsmv1",
-        name: "Убрать заставку",
-        desc: "Плагин. Убирает заставку перед показом",
+        name: "Убирает заставку перед показом",
         url: "https://artsmv1.github.io/lampa-plugins/remove-ad/remove-ad.js"
     };
 
 
     function startPlugin() {
         //console.log('RAd: startPlugin(): 1');
-        if (window.lampa_plugin_remove_ad) return;
-
-        window.lampa_plugin_remove_ad = true;
+        window.plugin_____remove_ad = true;
 
         //Lampa.Manifest.plugins = manifest;
         var updateplugins = false;
@@ -24,8 +26,6 @@
             if (plug.url.indexOf('artsmv1.github.io') >= 0) {
                 updateplugins = true;
                 plug.author = manifest.author;
-                plug.desc = manifest.desc;
-                plug.description = manifest.desc;
                 plug.name = manifest.name;
                 plug.version = manifest.version;
             }
@@ -40,26 +40,8 @@
                 Lampa.Storage.set("vast_plugin_launch", 1);
             }
         });
-    }
+    } /* startPlugin() */
 
 
-    startPlugin();
-    /*
-    if (window.appready) {
-        try {
-            console.log('RAd: Starting the plugin... 1a');
-            startPlugin();
-        } catch (err) {
-            console.log('RAd: Something went wrong', err);
-        }
-    } else {
-        Lampa.Listener.follow("app", function (e) {
-            console.log('RAd: Starting the plugin... 2a');
-            if (e.type == "ready") {
-                console.log('RAd: Starting the plugin... 2b');
-                startPlugin();
-            }
-        });
-    }
-    */
+    if (!window.plugin_____remove_ad) startPlugin();
 })();
