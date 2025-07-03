@@ -4,9 +4,9 @@
     var manifest = {
         type: "other",
         version: "0.0.7",
-        author: "@artsmv",
-        name: "Удаление заставки",
-        desc: "Плагин для удаление заставки перед показом",
+        author: "@artsmv1",
+        name: "Убрать заставку",
+        desc: "Плагин. Убирает заставку перед показом",
         url: "https://artsmv1.github.io/lampa-plugins/remove-ad/remove-ad.js"
     };
 
