@@ -7,6 +7,8 @@
     "use strict";
 
     function startPlugin() {
+        debugger;
+        
         window.plugin_____buttons = true;
 
         /* Кнопка Перезагрузки и Консоли*/
